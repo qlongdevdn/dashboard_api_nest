@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './src/app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { BASE_URL_ENUM } from 'src/enums';
+import { BASE_URL_ENUM } from './src/enums';
 const ConfigService = require('./src/config/config.service')
 async function main() {
 

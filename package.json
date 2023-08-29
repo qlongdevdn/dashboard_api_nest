@@ -3,13 +3,13 @@
     "version": "1.0.1",
     "private": true,
     "description": "Dashboard qlongdev API ",
-    "main": "app.js",
+    "main": "main.ts",
     "author": "QuangLongDevDN",
     "license": "MIT License",
     "scripts": {
         "build": "nest build",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-        "start": "nodemon main.ts",
+        "start": "nodemon -L main.ts",
         "lint": "npx eslint .",
         "lint:fix": "npx eslint --fix .",
         "test": "jest",
@@ -28,6 +28,7 @@
         "@nestjs/platform-express": "^10.0.0",
         "@nestjs/swagger": "^7.1.8",
         "@prisma/client": "^5.2.0",
+        "class-validator": "^0.14.0",
         "nodemon": "^3.0.1",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^7.8.1"
