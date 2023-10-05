@@ -1,4 +1,4 @@
-export const enum BASE_URL_ENUM {
+export enum BASE_URL_ENUM {
     USERS = 'users',
-    API = 'api'
+    API = 'api',
 }

@@ -1,4 +1,1 @@
-export interface apiUserService {
-
-    
-}
+export interface apiUserService {}

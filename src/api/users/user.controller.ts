@@ -1,33 +1,29 @@
-import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
-import { ApiOperation, ApiTags } from "@nestjs/swagger";
-import { ApiUserClassModel, ApiCustomResponse, ApiAuthClassModel, UsersDto } from "../model"
-import { BASE_URL_ENUM } from "src/enums";
-import { userDump } from "../../common/dump";
-
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiUserClassModel, ApiCustomResponse, ApiAuthClassModel, UsersDto } from '../model';
+import { userDump } from '../../common/dump';
+import { BASE_URL_ENUM } from '../../enums';
 
 @ApiTags(BASE_URL_ENUM.USERS)
-@Controller(`data/${BASE_URL_ENUM.USERS}`)
+@Controller(`api/${BASE_URL_ENUM.USERS}`)
 export class UsersController {
-
-    constructor(
-        // @Inject(INJECTION_TOKENS.API.API_CLASS_SERVICE)
-        // private apiClassService: ApiClassService,
-    ) { }
+    constructor() {} // private apiClassService: ApiClassService, // @Inject(INJECTION_TOKENS.API.API_CLASS_SERVICE)
     @Get()
     @ApiCustomResponse(ApiUserClassModel)
-    @ApiOperation({ description: "Get list matched user in dashboard" })
+    @ApiOperation({ description: 'Get list matched user in dashboard', summary: 'Get list matched user' })
     getMatchedUser() {
         return {
-            data: userDump
-        }
+            data: userDump,
+        };
     }
 
-    @Post("/add-new")
+    @Post('/add-new')
     @ApiCustomResponse(ApiAuthClassModel)
-    @ApiOperation({ description: "Create new user in our system" })
+    @ApiOperation({ description: 'Create new user in our system', summary: 'Create new user' })
     createNewUser(@Body() usersDto: UsersDto) {
+        console.log(usersDto);
         return {
-            data: userDump
-        }
+            data: userDump,
+        };
     }
 }

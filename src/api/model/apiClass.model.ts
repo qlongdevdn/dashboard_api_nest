@@ -1,32 +1,32 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class ApiUserClassModel {
     @ApiProperty()
-    user_id = ""
+    user_id = '';
 
     @ApiProperty()
-    email = ""
+    email = '';
 
     @ApiProperty()
-    user_name = ""
+    user_name = '';
 
     @ApiProperty()
-    given_name = ""
+    given_name = '';
 
     @ApiProperty()
-    family_name = ""
+    family_name = '';
 
     @ApiProperty()
-    nickname = ""
+    nickname = '';
 
     @ApiProperty()
-    last_ip = ""
+    last_ip = '';
 
     @ApiProperty()
-    logins_count = 0
+    logins_count = 0;
 
     @ApiProperty()
-    email_verified: Boolean
+    email_verified: boolean = false;
 
     @ApiProperty()
     created_at: Date = new Date();
@@ -40,10 +40,10 @@ export class ApiUserClassModel {
 
 export class ApiAuthClassModel extends ApiUserClassModel {
     @ApiProperty()
-    access_token: String
+    access_token = '';
 }
 
 export class ApiBaseClassModel {
     @ApiProperty()
-    request_at = new Date()
+    request_at = new Date();
 }

@@ -1,28 +1,40 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
+        "node": true,
+        "jest": true,
+        "es2017": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
-    "overrides": [],
+    "root": true,
+    "extends": [
+        "prettier",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": "latest",
+        // tells our parser the relative path where your project's tsconfig.json is located
+        "project": true,
         "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "import", "prettier"],
     "rules": {
+        "prettier/prettier": "error",
+        "import/prefer-default-export": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "no-mixed-spaces-and-tabs": "off",
-        "@typescript-eslint/no-unused-vars": "error"
-    },
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "paths": ["src"],
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "@typescript-eslint/no-unused-vars": "error",
+        "import/extensions": [
+            "off",
+            "ignorePackages",
+            {
+                "js": "never",
+                "ts": "never"
             }
-        }
+        ]
     }
 }

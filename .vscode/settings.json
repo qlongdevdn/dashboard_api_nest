@@ -1,0 +1,7 @@
+{
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "javascript.preferences.importModuleSpecifierEnding": "auto",
+    "javascript.format.semicolons": "insert",
+    "typescript.format.semicolons": "insert"
+}

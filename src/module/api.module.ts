@@ -1,7 +1,7 @@
-import { Module } from "@nestjs/common";
-import { UsersController } from "../api";
+import { Module } from '@nestjs/common';
+import { UsersController } from '../api';
 
 @Module({
-    controllers: [UsersController]
+    controllers: [UsersController],
 })
-export default class ApiModule { }
+export default class ApiModule {}

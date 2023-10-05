@@ -1,1 +1,1 @@
-export * from "./users.dump"
+export * from './users.dump';

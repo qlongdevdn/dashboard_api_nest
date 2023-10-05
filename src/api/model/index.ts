@@ -1,2 +1,2 @@
-export * from "./apiClass.model"
-export * from "./dtos";
+export * from './apiClass.model';
+export * from './dtos';
