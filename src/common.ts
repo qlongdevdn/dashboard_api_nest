@@ -18,11 +18,12 @@ const printEnvironment = (envData: object) => {
     }
 
     appVars.sort();
+    values.sort();
 
     for (const appVar of appVars) {
         console.log(appVar);
     }
-    console.log(`Server started at http://${APP_SERVER.getLocalIP4()}:${values[0]}`);
+    console.log(`Server started at http://${APP_SERVER.getLocalIP4()}:${values[0]}/${values[1]}`);
     console.log('='.repeat(20) + '\n');
 };
 

@@ -9,17 +9,16 @@
     "scripts": {
         "build": "nest build",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-        "start": "nodemon -L",
-        "start:dev": "nodemon -L",
-        "lint": "npx eslint .",
-        "lint:fix": "npx eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+        "start": "bun -L",
+        "lint": "bun eslint .",
+        "lint:fix": "bun eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "test": "jest",
         "test:watch": "jest --watch",
         "test:cov": "jest --coverage",
-        "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+        "test:debug": "bun --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
         "test:e2e": "jest --config ./test/jest-e2e.json",
-        "prettier:fix": "npx prettier --write .",
-        "prettier:check": "npx prettier --check ."
+        "prettier:fix": "bun prettier --write .",
+        "prettier:check": "bun prettier --check ."
     },
     "dependencies": {
         "@nestjs/common": "^10.0.0",
@@ -31,7 +30,6 @@
         "@prisma/client": "^5.2.0",
         "class-validator": "^0.14.0",
         "eslint-plugin-import": "^2.28.1",
-        "nodemon": "^3.0.1",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^7.8.1",
         "typeorm": "^0.3.17"
