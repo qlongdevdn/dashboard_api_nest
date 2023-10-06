@@ -7,9 +7,9 @@
     "author": "QuangLongDevDN",
     "license": "MIT License",
     "scripts": {
-        "build": "bun build",
+        "build": "nest build",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-        "start": "bun start",
+        "start": "bun src/main.ts",
         "lint": "bun eslint .",
         "lint:fix": "bun eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "test": "jest",
