@@ -38,3 +38,4 @@ package-lock.json
 
 # Bun config
 bun.lockb
+build
