@@ -1,5 +1,10 @@
 import { Type, applyDecorators } from '@nestjs/common';
-import { ApiExtraModels, ApiOkResponse, getSchemaPath, ApiProperty } from '@nestjs/swagger';
+import {
+    ApiExtraModels,
+    ApiOkResponse,
+    getSchemaPath,
+    ApiProperty,
+} from '@nestjs/swagger';
 
 export class ResponseDto {
     @ApiProperty({
@@ -8,7 +13,10 @@ export class ResponseDto {
     data: Record<string, any> = {};
 }
 
-export const ApiCustomResponse = <TModel extends Type<any>>(model: TModel, isArray = false) => {
+export const ApiCustomResponse = <TModel extends Type<any>>(
+    model: TModel,
+    isArray = false
+) => {
     return applyDecorators(
         ApiExtraModels(ResponseDto),
         ApiExtraModels(model),

@@ -10,6 +10,7 @@
         "build": "nest build",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
         "start": "bun src/main.ts",
+        "start:dev": "bun --watch src/main.ts",
         "lint": "bun eslint .",
         "lint:fix": "bun eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "test": "jest",

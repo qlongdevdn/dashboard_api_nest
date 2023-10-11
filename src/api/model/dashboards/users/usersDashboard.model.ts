@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ApiUserClassModel {
+export class UsersDashboardModel {
     @ApiProperty()
     user_id = '';
 
@@ -36,14 +36,4 @@ export class ApiUserClassModel {
 
     @ApiProperty()
     last_login: Date = new Date();
-}
-
-export class ApiAuthClassModel extends ApiUserClassModel {
-    @ApiProperty()
-    access_token = '';
-}
-
-export class ApiBaseClassModel {
-    @ApiProperty()
-    request_at = new Date();
 }
