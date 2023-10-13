@@ -1,7 +1,17 @@
 import { Module } from '@nestjs/common';
-import { UsersController } from './controllers';
+import { UsersController } from 'src/api/controllers';
+import { ApiUsersDashboardProvider } from 'src/api/providers';
 
 @Module({
-    controllers: [UsersController],
+    providers: [
+        // services
+        ApiUsersDashboardProvider
+    ],
+    controllers: [
+        UsersController
+    ],
+    exports: [
+        ApiUsersDashboardProvider
+    ]
 })
-export default class ApiModule {}
+export default class ApiModule { }

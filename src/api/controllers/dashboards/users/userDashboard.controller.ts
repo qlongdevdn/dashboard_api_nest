@@ -1,13 +1,18 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { UsersDashboardModel, ApiCustomResponse, ApiAuthClassModel, UsersDashboardDto } from 'src/api/model';
+import { ApiUsersDashBoardService } from 'src/api/services';
+
 import { userDump } from 'src/common/dump';
-import { BASE_URL_ENUM } from 'src/enums';
+import { BASE_URL_ENUM, INJECTION_SYSTEMS } from 'src/enums';
 
 @ApiTags(BASE_URL_ENUM.USERS)
 @Controller(`api/${BASE_URL_ENUM.USERS}`)
 export class UsersController {
-    constructor() {} // private apiClassService: ApiClassService, // @Inject(INJECTION_TOKENS.API.API_CLASS_SERVICE)
+    constructor(
+        @Inject(INJECTION_SYSTEMS.API.API_USERS_DASHBOAD_SERVICE)
+        private apiUsersDashBoardService: ApiUsersDashBoardService,
+    ) {}
 
     @Get()
     @ApiCustomResponse(UsersDashboardModel)
@@ -16,10 +21,10 @@ export class UsersController {
         summary: 'Get list matched user',
     })
     getListUser() {
-        return {
-            data: userDump,
-        };
+        // return this.apiUsersDashBoardService.listUsers();
+        return true;
     }
+    
 
     @Post('/add-new')
     @ApiCustomResponse(ApiAuthClassModel)
