@@ -7,11 +7,11 @@ import { userDump } from 'src/common/dump';
 import { BASE_URL_ENUM, INJECTION_SYSTEMS } from 'src/enums';
 
 @ApiTags(BASE_URL_ENUM.USERS)
-@Controller(`api/${BASE_URL_ENUM.USERS}`)
+@Controller(`${BASE_URL_ENUM.API}/${BASE_URL_ENUM.USERS}`)
 export class UsersController {
     constructor(
         @Inject(INJECTION_SYSTEMS.API.API_USERS_DASHBOAD_SERVICE)
-        private apiUsersDashBoardService: ApiUsersDashBoardService,
+        private apiUsersDashBoardService: ApiUsersDashBoardService
     ) {}
 
     @Get()
@@ -21,10 +21,8 @@ export class UsersController {
         summary: 'Get list matched user',
     })
     getListUser() {
-        // return this.apiUsersDashBoardService.listUsers();
-        return true;
+        return this.apiUsersDashBoardService.listUsers();
     }
-    
 
     @Post('/add-new')
     @ApiCustomResponse(ApiAuthClassModel)
@@ -32,7 +30,7 @@ export class UsersController {
         description: 'Create new user in our system',
         summary: 'Create new user',
     })
-    createNewUser(
+    createUsers(
         @Body()
         usersDashboardDto: UsersDashboardDto
     ) {

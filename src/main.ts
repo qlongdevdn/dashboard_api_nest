@@ -2,11 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { BASE_URL_ENUM } from './enums';
-import { ConfigService } from './config/config.service';
+import { ConfigsService } from './config/config.service';
 import { printEnvironment } from './common';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 
-const configService = new ConfigService();
+const configService = new ConfigsService();
 const configAll = configService.getAll();
 const APP_PORT = configService.get('APP_PORT');
 const APP_ENV = configService.get('APP_ENV');

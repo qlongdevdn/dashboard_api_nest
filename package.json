@@ -9,17 +9,17 @@
     "scripts": {
         "build": "nest build",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-        "start": "bun src/main.ts",
-        "start:dev": "bun --watch src/main.ts",
-        "lint": "bun eslint .",
-        "lint:fix": "bun eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+        "start": "nest start",
+        "start:dev": "nest start --watch",
+        "lint": "eslint .",
+        "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "test": "jest",
         "test:watch": "jest --watch",
         "test:cov": "jest --coverage",
-        "test:debug": "bun --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+        "test:debug": "jest --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
         "test:e2e": "jest --config ./test/jest-e2e.json",
-        "prettier:fix": "bun prettier --write .",
-        "prettier:check": "bun prettier --check ."
+        "prettier:fix": "npx prettier --write .",
+        "prettier:check": "npx prettier --check ."
     },
     "dependencies": {
         "@nestjs/common": "^10.0.0",
@@ -28,9 +28,11 @@
         "@nestjs/jwt": "^10.1.0",
         "@nestjs/platform-express": "^10.0.0",
         "@nestjs/swagger": "^7.1.8",
+        "@nestjs/typeorm": "^10.0.0",
         "@prisma/client": "^5.2.0",
         "class-validator": "^0.14.0",
         "eslint-plugin-import": "^2.28.1",
+        "mongodb": "^5.9.0",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^7.8.1",
         "typeorm": "^0.3.17"
