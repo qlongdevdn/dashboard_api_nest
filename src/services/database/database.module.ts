@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigsService } from 'src/config/config.service';
-import EntitiesModule from 'src/entities';
 
 const configService = new ConfigsService();
 var UrlConnection = '';
@@ -25,7 +24,7 @@ if (configService.get('APP_ENV') === 'development') {
                 type: 'mongodb',
                 url: UrlConnection,
                 useNewUrlParser: true,
-                entities: EntitiesModule,
+                entities: ['src/entities/**/*.entity.{ts,js}'],
                 logging: true,
                 synchronize: true,
                 autoLoadEntities: true,
