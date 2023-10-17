@@ -1,2 +1,2 @@
 export * from './dashboards';
-export * from 'src/api/dtos';
+export * from './apiResponse.model';

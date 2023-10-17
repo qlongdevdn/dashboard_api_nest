@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { UsersDashboardModel, ApiCustomResponse, ApiAuthClassModel, UsersDashboardDto } from 'src/api/model';
+import { UsersDashboardDto } from 'src/api/dtos';
+import { UsersDashboardModel, ApiAuthClassModel, ApiCustomResponse } from 'src/api/model';
 import { ApiUsersDashBoardService } from 'src/api/services';
 
 import { userDump } from 'src/common/dump';
