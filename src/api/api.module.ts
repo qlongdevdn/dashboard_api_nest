@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { UsersController } from 'src/api/controllers';
-import { ApiUsersDashboardProvider, UsersRepositoryProvider } from 'src/api/providers';
+import { ApiUsersDashboardProvider, TransformUsersDashboardProvider, UsersRepositoryProvider } from 'src/api/providers';
 import DatabaseModule from 'src/services/database/database.module';
 
 @Module({
@@ -9,6 +9,7 @@ import DatabaseModule from 'src/services/database/database.module';
         // services
         ApiUsersDashboardProvider,
         UsersRepositoryProvider,
+        TransformUsersDashboardProvider,
     ],
     controllers: [UsersController],
     exports: [ApiUsersDashboardProvider],

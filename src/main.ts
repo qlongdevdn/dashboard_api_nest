@@ -5,6 +5,7 @@ import { BASE_URL_ENUM } from './enums';
 import { ConfigsService } from './config/config.service';
 import { printEnvironment } from './common';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
+import { ValidationPipe } from '@nestjs/common';
 
 const configService = new ConfigsService();
 const configAll = configService.getAll();
@@ -20,6 +21,12 @@ async function main() {
         } as CorsOptions,
     });
 
+    // Enable Pipes
+    app.useGlobalPipes(
+        new ValidationPipe({
+            transform: true,
+        })
+    );
     const config = new DocumentBuilder()
         .setTitle('Dashboard API')
         .setDescription('DashboardAPI description')

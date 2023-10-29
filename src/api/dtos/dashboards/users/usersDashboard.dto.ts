@@ -1,15 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsEmail, Min, IsBoolean, IsMobilePhone, IsEnum, IsDateString } from 'class-validator';
+import { IsNotEmpty, IsEmail, MinLength, IsBoolean, IsMobilePhone, IsEnum, IsDateString } from 'class-validator';
 import { AccountLevel, AccountStatus, AccountType, Gender, Roles, Status } from 'src/enums';
 
 export class UsersDashboardDto {
     @IsNotEmpty()
-    @Min(8)
+    @MinLength(6)
     @ApiProperty()
     user_name: string = '';
 
     @IsNotEmpty()
-    @Min(8)
+    @MinLength(6)
     @ApiProperty()
     password: string = '';
 
@@ -23,11 +23,12 @@ export class UsersDashboardDto {
     @ApiProperty()
     email_verified: boolean = false;
 
-    @Min(8)
+    @MinLength(8)
     @ApiProperty()
     full_name: string = '';
 
-    @Min(8)
+    @IsNotEmpty()
+    @MinLength(3)
     @ApiProperty()
     short_name: string = '';
 
@@ -43,32 +44,28 @@ export class UsersDashboardDto {
     @ApiProperty()
     dob: Date = new Date();
 
+    @IsNotEmpty()
     @IsEnum(Roles)
     @ApiProperty()
     role = Roles;
 
-    @IsNotEmpty()
     @IsEnum(Status)
     @ApiProperty()
-    status = Status;
+    status: Status = Status.OFFLINE;
 
-    @IsNotEmpty()
     @IsEnum(AccountStatus)
     @ApiProperty()
-    account_status = AccountStatus;
+    account_status: AccountStatus = AccountStatus.NOT_ACTIVE;
 
-    @IsNotEmpty()
     @IsEnum(AccountLevel)
     @ApiProperty()
-    account_level = AccountLevel;
+    account_level: AccountLevel = AccountLevel.LEVEL_0;
 
-    @IsNotEmpty()
     @IsEnum(AccountType)
     @ApiProperty()
-    account_type = AccountType;
+    account_type: AccountType = AccountType.MANUAL;
 
-    @IsNotEmpty()
     @IsEnum(Gender)
     @ApiProperty()
-    gender = Gender;
+    gender: Gender = Gender.MALE;
 }

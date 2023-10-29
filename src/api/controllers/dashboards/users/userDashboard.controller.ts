@@ -35,9 +35,6 @@ export class UsersController {
         @Body()
         usersDashboardDto: UsersDashboardDto
     ) {
-        console.log(usersDashboardDto);
-        return {
-            data: userDump,
-        };
+        return this.apiUsersDashBoardService.createUsers(usersDashboardDto);
     }
 }

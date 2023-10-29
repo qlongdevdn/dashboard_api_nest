@@ -6,11 +6,15 @@ import { BASE_MESSAGES_TYPE, INJECTION_SYSTEMS } from 'src/enums';
 import { UserDashboard } from 'src/entities';
 import { ResponseErrorMapper, ResponseSuccessMapper } from 'src/api/model';
 import { DashboardMessageType } from 'src/enums/dashboard/messages.enum';
+import { UsersDashboardTransform } from 'src/api/transform';
 
 export class ApiUsersDashBoardTml implements ApiUsersDashBoardService {
     constructor(
         @Inject(INJECTION_SYSTEMS.REPOSITORY.USERS_REPOSITORY)
-        private userRepository: UsersRepository
+        private userRepository: UsersRepository,
+
+        @Inject(INJECTION_SYSTEMS.TRANSFORM.DASHBOARD_TRANSFORM)
+        private transformUsers: UsersDashboardTransform
     ) {}
 
     async listUsers(): Promise<ApiResponseDetails<UserDashboard[]>> {
@@ -27,6 +31,7 @@ export class ApiUsersDashBoardTml implements ApiUsersDashBoardService {
     }
 
     createUsers(usersDashboardDto: UsersDashboardDto): Promise<ApiResponseDetails<UserDashboard>> {
+        const dataTransform = this.transformUsers.transformUsersDashboard(usersDashboardDto);
         // const userEntities = userPLRequests.map((request) => this.userMapper.convertToEntity(request));
 
         throw new Error('Method not implemented.');

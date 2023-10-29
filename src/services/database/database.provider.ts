@@ -10,6 +10,7 @@ export const DatabaseProvider = {
             }
         } catch (error) {
             console.log('Error when init DB: ', error);
+            return error;
         }
         return MongoDBConnectionService;
     },
