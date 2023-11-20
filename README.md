@@ -28,6 +28,12 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Setup sprict
+
+```bash
+$ npm install
+```
+
 ## Installation
 
 ```bash
